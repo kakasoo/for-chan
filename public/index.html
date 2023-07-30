@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Express</title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <script>
+            async function consoleLog() {
+                /**
+                 * thenable함수
+                 * 자바스크립트는 요청을 날리고 그 요청의 응답을 기다리지 않고,
+                 * 다른 작업을 하고 있는다.
+                 * 대신 응답이 돌아오면 그 때 then 이후를 실행한다고 약속만 해둔다.
+                 **/
+                // fetch("http://127.0.0.1:3000/dogs", {
+                //     method: "POST",
+                // })
+                //     .then((res) => res.json())
+                //     .then((res) => {
+                //         console.log(res);
+                //     });
+
+                // Promise는 async/await로 작성한다.
+                // await는 끝날 때까지 기다리고 있으라는 의미다.
+                const res = await fetch("http://127.0.0.1:3000/dogs", {
+                    // method: "POST",
+                    method: "DELETE",
+                });
+                const data = await res.json();
+                console.log(data);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Express</h1>
+        <p>Welcome to Express</p>
+
+        <button onClick="consoleLog()">abcd</button>
+    </body>
+</html>
